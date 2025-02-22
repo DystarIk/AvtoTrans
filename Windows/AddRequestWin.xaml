@@ -1,0 +1,60 @@
+﻿<Window x:Class="AvtoTrans.Windows.AddRequestWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Title="Добавление заявки" MinHeight="500" MinWidth="350" MaxHeight="500" MaxWidth="350">
+    <StackPanel HorizontalAlignment="Center" Margin="15">
+
+        <!---ФИО клиента-->
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="ФИО клиента"/>
+                <TextBox Width="250" Text="{Binding FIO}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Телефон-->
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Телефон"/>
+                <TextBox Width="250" Text="{Binding Request.Phone}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Вид авто-->
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Вид авто"/>
+                <ComboBox MaxDropDownHeight="150" Width="250" 
+                      SelectedItem="{Binding Request.CarType}"
+                      ItemsSource="{Binding CarType}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Модель авто-->
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Модель авто"/>
+                <TextBox Width="250" Text="{Binding Request.CarModel}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Описание проблемы-->
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Описание проблемы"/>
+                <TextBox Width="250" Height="150" TextWrapping="Wrap" 
+                     Text="{Binding Request.Description}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Кнопки добавиь и вернутся-->
+        <UniformGrid Grid.Column="2" Margin="0,20,0,0">
+            <Button Grid.Column="0" Content="Добавить" Click="AddButton_Click"/>
+            <Button Grid.Column="1" Content="Вернутся" Click="CloseButton_Click"/>
+        </UniformGrid>
+
+    </StackPanel>
+</Window>
