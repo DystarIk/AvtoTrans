@@ -5,28 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvtoTrans.Windows"
         mc:Ignorable="d"
-        Title="АвтоТранс" Height="450" Width="800">
+        Title="АвтоТранс" MinHeight="450" MinWidth="740" Height="450" Width="740">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2.1*"/>
             <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Content="Обновить список" Click="RefreshButton_Click"/>
+        <StackPanel Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Поиск по айди"/>
+                <TextBox Width="100" Text="{Binding RequestId}"/>
+                <Button Content="Найти" Click="SearchByID_Click"/>
+            </StackPanel>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding Requests}">
-         
-        </ListView>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Стутус заявки"/>
+                <ComboBox MaxDropDownHeight="150" Width="250" 
+                          SelectedItem="{Binding SelectStatus}"
+                          ItemsSource="{Binding Statuses}"/>
+                <Button Content="Найти" Click="SearchStatus_Click"/>
+            </StackPanel>
+
+            <Button Content="Обновить список" Click="RefreshButton_Click"/>
+        </StackPanel>
+
+        <DataGrid Name="lV1" Grid.Row="1" ItemsSource="{Binding Requests}" SelectedItem="{Binding SelectRequest}" IsReadOnly="True"/>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Button Grid.Column="0" Content="Добавить заявку" Click="AddButton_Click"/>
-            <Button Grid.Column="1" Content="Изменить Заявку" Click="EditButton_Click"/>
+            <Button Grid.Column="1" Content="Статистика" Click="Statistics_Click"/>
+            <Button Grid.Column="2" Content="Изменить Заявку" Click="EditButton_Click"/>
         </Grid>
     </Grid>
 </Window>

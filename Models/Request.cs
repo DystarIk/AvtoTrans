@@ -18,13 +18,13 @@ public class Request
     /// <summary>
     /// Тип автомобиля
     /// </summary>
-    [Required(ErrorMessage = "Поле «Тип авто» пустое")]
-    public CarType? CarType { get; set; }
+    [Required(ErrorMessage = "Поле пустое «Тип авто»")]
+    public  CarType? CarType { get; set; }
 
     /// <summary>
     /// Модель автомобиля
     /// </summary>
-    [Required(ErrorMessage = "Поле «Модель авто» пустое")]
+    [Required(ErrorMessage = "Поле пустое «Модель авто»")]
     public string? CarModel { get; set; }
 
     /// <summary>
@@ -35,13 +35,13 @@ public class Request
     /// <summary>
     /// ФИО
     /// </summary>
-    [Required(ErrorMessage = "Поле «ФИО» пустое")]
+    [Required(ErrorMessage = "Поле пустое «ФИО»")]
     public FIO? FIO { get; set; }
 
     /// <summary>
     /// Номер телефона
     /// </summary>
-    [Required(ErrorMessage = "Поле «Телефон» пустое")]
+    [Required(ErrorMessage = "Поле пустое «Телефон»")]
     [RegularExpression(@"^\+?[1-9]\d{1,14}", ErrorMessage = "Некорректный формат телефона")]
     public string? Phone { get; set; }
 
@@ -84,7 +84,6 @@ public class Request
     public override string ToString()
     {
         string mechanic = Mechanic?.FIO.ToString() ?? "Не назначен";
-
-        return $"Номер: {Number} Клиент: {FIO} Статус: {Status} Механик{mechanic}";
+        return $"Номер [{Number}]  Клиент [{FIO}] Статус [{Status}]  Механик [{mechanic}]";
     }
 }

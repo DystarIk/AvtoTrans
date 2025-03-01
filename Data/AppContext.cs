@@ -15,7 +15,7 @@ class AppContext : IDisposable
 
     public AppContext()
     {
-       
+
     }
 
 
@@ -24,7 +24,14 @@ class AppContext : IDisposable
         _requests.Add(request);
     }
 
- 
+    public void AddMechanic(Mechanic mechanic, Request request)
+    {
+        mechanic.Requests.Add(request);
+        if (!_mechanics.Contains(mechanic))
+            _mechanics.Add(mechanic);
+    }
+
+
 
     public void Dispose()
     {

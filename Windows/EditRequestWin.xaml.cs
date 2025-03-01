@@ -57,6 +57,7 @@ public partial class EditRequestWin : Window
                 throw new Exception(Error);
             }
             MessageBox.Show("Заявка изменилась");
+            CloseButton_Click(sender, e);
         }
         catch (Exception ex)
         {

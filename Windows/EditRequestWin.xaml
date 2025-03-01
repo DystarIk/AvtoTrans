@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AvtoTrans.Windows"
         mc:Ignorable="d"
         Title="Редактирование заявки" MinHeight="500" MinWidth="350" MaxHeight="600" MaxWidth="350">
-    <StackPanel HorizontalAlignment="Center" Margin="15">
+    <StackPanel >
 
         <!--Номер заявки-->
         <StackPanel Orientation="Horizontal">
@@ -85,10 +85,15 @@
         </StackPanel>
         
         <!--Кнопки Изменить и вернутся-->
-        <UniformGrid Grid.Column="2" Margin="0,20,0,0">
+        <Grid Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
             <Button Grid.Column="0" Content="Изменить" Click="EditButton_Click"/>
             <Button Grid.Column="1" Content="Вернутся" Click="CloseButton_Click"/>
-        </UniformGrid>
+        </Grid>
 
     </StackPanel>
 </Window>

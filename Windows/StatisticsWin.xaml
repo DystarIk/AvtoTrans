@@ -1,0 +1,35 @@
+﻿<Window x:Class="AvtoTrans.Windows.StatisticsWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvtoTrans.Windows"
+        mc:Ignorable="d"
+        Title="Статистика" MinHeight="450" MinWidth="740">
+    <StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{Binding New}"/>
+            <Label Content="Кол-во заявок «Новых»"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{Binding InProcess}"/>
+            <Label Content="Кол-во новых «В процессе»"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{Binding Completed}"/>
+            <Label Content="Кол-во новых «Завершеных»"/>
+        </StackPanel>
+
+        <Button Content="Посмотреть статистику миханика" Click="Button_Click" />
+        <ScrollViewer>
+            <Grid>
+                <DataGrid Name="lV1" Grid.Row="1" 
+                  ItemsSource="{Binding Mechanics}" 
+                  SelectedItem="{Binding SelectMechanic}" 
+                  IsReadOnly="True"/>
+            </Grid>
+        </ScrollViewer>
+        
+    </StackPanel>
+</Window>

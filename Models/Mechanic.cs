@@ -3,6 +3,7 @@
 public class Mechanic : IEquatable<Mechanic?>
 {
     public FIO FIO { get; set; }
+    public List<Request> Requests { get; set; } = new();
 
 
     public Mechanic(FIO fIO) => FIO = fIO;
